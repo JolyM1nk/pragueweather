@@ -1,6 +1,6 @@
 export default class WeatherService {
   _apiBase =
-    'http://api.openweathermap.org/data/2.5/weather?id=3067696&units=metric&appid=2a605a628b0fafb83b8e21785b607418';
+    'https://api.openweathermap.org/data/2.5/weather?id=3067696&units=metric&appid=2a605a628b0fafb83b8e21785b607418';
 
   getWeather = async () => {
     const res = await fetch(this._apiBase);
