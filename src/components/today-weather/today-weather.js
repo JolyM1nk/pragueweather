@@ -2,17 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './today-weather.scss';
 
-import cloudy from '../../assets/images/cloudy.png';
+import clear from '../../assets/images/cloudy.png';
 import rainy from '../../assets/images/rainy.png';
 import snow from '../../assets/images/snow.png';
 import thundershtorm from '../../assets/images/thundershtorm.png';
 
 const TodayWeather = ({ temp, wind, pressure, humidity, weatherCondition }) => {
+  const image =
+    weatherCondition === 'snow'
+      ? snow
+      : weatherCondition === 'rain'
+      ? rainy
+      : weatherCondition === 'thundershtorm'
+      ? thundershtorm
+      : clear;
+
   return (
     <section className="today">
       <div className="today__content">
         <h1 className="today__town">Prague</h1>
-        <img src={thundershtorm} alt="weather" className="today__weathericon" />
+        <img src={image} alt="weather" className="today__weathericon" />
         <span className="today__temp">
           {temp >= 0 ? '+' : '-'}
           {temp}
